@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:36:04 by ressalhi          #+#    #+#             */
-/*   Updated: 2022/11/21 14:08:19 by ressalhi         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:12:55 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ class contact
         std::string first_name;
         std::string last_name;
         std::string nickname;
-        std::int64_t phone_number;
+        std::string phone_number;
         std::string darkest_secret;
     public:
         void    ft_addinfo();
         void    ft_printinfo(int i);
+        void    ft_printallinfo();
 };
 
 
