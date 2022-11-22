@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:24:44 by ressalhi          #+#    #+#             */
-/*   Updated: 2022/11/21 14:23:38 by ressalhi         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:29:02 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include "phonebook.hpp"
 
 void    contact::ft_printinfo(int i){
+    first_name = first_name.substr(0, 10);
+    first_name[9] = '.';
+    last_name = last_name.substr(0, 10);
+    last_name[9] = '.';
     std::cout << i << "         | " << first_name << " | " << last_name << " | " << nickname << std::endl;
 }
 
@@ -33,6 +37,8 @@ void    contact::ft_addinfo(){
 
 void    phonebook::ft_addc(void){
 
+    if (index > 8)
+        index = 0;
     contact[index].ft_addinfo();
     index++;
 }
@@ -44,13 +50,16 @@ void    phonebook::ft_searchc(void){
     {
         contact[i].ft_printinfo(i);
     }
-    while (1)
+    std::cout << "Enter an Index :";
+    std::string s;
+    while (std::getline(std::cin, s))
     {
-        std::string s;
-        std::getline(std::cin, s);
-        if (s.size() > 2)
+        if (std::cin.eof())
+            break;
+        if (s.size() > 2 || !isdigit(s[0]))
         {
             std::cout << "Wrong Index\n";
+            std::cout << "Enter an Index :";
             continue;
         }
         else
@@ -59,6 +68,7 @@ void    phonebook::ft_searchc(void){
             if (i > index)
             {
                 std::cout << "Wrong Index\n";
+                std::cout << "Enter an Index :";
                 continue;
             }
             contact[i].ft_printinfo(i);
@@ -74,9 +84,12 @@ int main()
     std::string s;
     phonebook book;
     book.index = 0;
+    std::cout << "Enter a command :";
     while (1)
     {
         std::getline(std::cin, s);
+        if (std::cin.eof())
+            break;
         if (s == "ADD")
             book.ft_addc();
         else if (s == "SEARCH")
@@ -89,6 +102,5 @@ int main()
         else
             std::cout << "Phonebook : " << s <<" : Command not found\nValid commands : (ADD, SEARCH or EXIT)\n";
         std::cout << "Enter a command :";
-        
     }
 }
