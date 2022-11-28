@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:52:50 by ressalhi          #+#    #+#             */
-/*   Updated: 2022/11/24 15:17:23 by ressalhi         ###   ########.fr       */
+/*   Updated: 2022/11/27 12:09:14 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int main()
 {
-    Zombie Zombie;
+    Zombie *zombie;
     
-    Zombie.announce();
+    zombie = newZombie("rida");
+    zombie->announce();
+    randomChump("foo");
+    delete zombie;
 }

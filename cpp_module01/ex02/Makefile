@@ -5,18 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/24 14:51:05 by ressalhi          #+#    #+#              #
-#    Updated: 2022/11/25 18:33:15 by ressalhi         ###   ########.fr        #
+#    Created: 2022/11/28 12:01:15 by ressalhi          #+#    #+#              #
+#    Updated: 2022/11/28 12:02:36 by ressalhi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Zombie
+NAME = hi_this_is_brain
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp \
-	Zombie.cpp \
-	newZombie.cpp \
-	randomChump.cpp
+SRC = main.cpp
 
 all : $(NAME)
 
