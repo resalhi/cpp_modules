@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:24:44 by ressalhi          #+#    #+#             */
-/*   Updated: 2022/11/22 21:08:08 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:21:16 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,38 +77,47 @@ void    contact::ft_printinfo(int i){
 }
 
 void    contact::ft_addinfo(){
-            std::cout << "first_name: ";
-            std::cin >> first_name;
-            std::cout << "last_name: ";
-            std::cin >> last_name;
-            std::cout << "nickname: ";
-            std::cin >> nickname;
-            while (1)
+    std::cout << "first_name: ";
+    std::getline(std::cin, first_name);
+    if (std::cin.eof())
+        return ;
+    std::cout << "last_name: ";
+    std::getline(std::cin, last_name);
+    if (std::cin.eof())
+        return ;
+    std::cout << "nickname: ";
+    std::getline(std::cin, nickname);
+    if (std::cin.eof())
+        return ;
+    while (1)
+    {
+        int status=0;
+        std::cout << "phone_number: ";
+        std::getline(std::cin, phone_number);
+        if (std::cin.eof())
+            return ;
+        int l = phone_number.size();
+        for (int i = 0; i < l; i++)
+        {
+            if (!isdigit(phone_number[i]))
             {
-                int status=0;
-                std::cout << "phone_number: ";
-                std::cin >> phone_number;
-                int l = phone_number.size();
-                for (int i = 0; i < l; i++)
-                {
-                    if (!isdigit(phone_number[i]))
-                    {
-                        status=1;
-                        std::cout << "Wrong phone_number it should contain only integer\n";
-                        break ;
-                    }
-                }
-                if (status)
-                    continue;
-                else
-                    break;
+                status=1;
+                std::cout << "Wrong phone_number it should contain only integer\n";
+                break ;
             }
-            std::cout << "darkest_secret: ";
-            std::cin >> darkest_secret;
+        }
+        if (status)
+            continue;
+        else
+            break;
+    }
+    std::cout << "darkest_secret: ";
+    std::getline(std::cin, darkest_secret);
+    if (std::cin.eof())
+        return ;
 }
 
 void    phonebook::ft_addc(void){
-
     if (index == 8)
         index = 0;
     contact[index].ft_addinfo();
@@ -116,7 +125,6 @@ void    phonebook::ft_addc(void){
 }
 
 void    phonebook::ft_searchc(void){
-
     std::cout << "*-----------* *----------* *----------* *-----------*\n";
     std::cout << "| Index      | First Name | Last Name  | nick name  |\n";
     std::cout << "*---------------------------------------------------*\n";
@@ -158,14 +166,15 @@ int main()
     std::string s;
     phonebook book;
     book.index = 0;
-    std::cout << "Enter a command :";
+    std::cout << "Enter a command : ";
     while (1)
     {
         std::getline(std::cin, s);
         if (std::cin.eof())
             break;
-        if (s == "ADD")
+        if (s == "ADD"){
             book.ft_addc();
+        }
         else if (s == "SEARCH")
         {
             if (book.index != 0)
@@ -180,6 +189,8 @@ int main()
         }
         else
             std::cout << "Phonebook : " << s <<" : Command not found\nValid commands : (ADD, SEARCH or EXIT)\n";
-        std::cout << "Enter a command :";
+        if (std::cin.eof())
+            break;
+        std::cout << "Enter a command : ";
     }
 }
