@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:57:31 by ressalhi          #+#    #+#             */
-/*   Updated: 2022/11/21 14:01:21 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:58:32 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class phonebook
         contact contact[8];
     public :
         int     index;
+        int     full;
         void    ft_addc(void);
         void    ft_searchc(void);
 };

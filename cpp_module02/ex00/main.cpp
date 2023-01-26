@@ -6,11 +6,10 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:12:56 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/24 20:37:18 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:42:25 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Fixed.hpp"
 
 int main( void ) {

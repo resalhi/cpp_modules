@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:24:44 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/22 13:21:16 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/26 19:08:01 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,10 @@ void    contact::ft_addinfo(){
 }
 
 void    phonebook::ft_addc(void){
-    if (index == 8)
+    if (index == 8){
+        full = 1;
         index = 0;
+    }
     contact[index].ft_addinfo();
     index++;
 }
@@ -147,7 +149,7 @@ void    phonebook::ft_searchc(void){
         else
         {
             int i = stoi(s);
-            if (i > index-1)
+            if ((i > index-1 && !full) || i > 7)
             {
                 std::cout << "Wrong Index or Empty field of Contact\n";
                 std::cout << "Enter an Index :";
@@ -166,6 +168,7 @@ int main()
     std::string s;
     phonebook book;
     book.index = 0;
+    book.full = 0;
     std::cout << "Enter a command : ";
     while (1)
     {

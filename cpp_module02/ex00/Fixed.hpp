@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:12:58 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/24 20:58:36 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:25:54 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,11 @@ class Fixed
     public:
         Fixed();
         Fixed(Fixed const &Fixed);
+        Fixed& operator=(Fixed const &Fixed);
         ~Fixed();
+        int getRawBits(void);
+        void setRawBits( int const raw );
 };
-
-Fixed::Fixed()
-{
-    std::cout << "Default constructor called\n";
-    this->fixed = 0;
-}
-
-Fixed::Fixed(Fixed const &Fixed)
-{
-    std::cout << "Copy constructor called\n";
-    this->fixed = 0;
-}
-
-Fixed::~Fixed()
-{
-    std::cout << "Destructor called\n";
-}
 
 
 #endif
