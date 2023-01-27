@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:24:44 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/26 19:08:01 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:42:55 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,26 @@ void    contact::ft_printinfo(int i){
     std::cout << "*---------------------------------------------------*\n";
 }
 
+void    ft_readattr(std::string str, std::string *s)
+{
+    while (1)
+    {
+        std::cout << str;
+        std::getline(std::cin, *s);
+        if (s[0] != "\0")
+            break;
+        else
+            std::cout << "Please write somthing\n";
+        if (std::cin.eof())
+            return ;
+    }
+    
+}
+
 void    contact::ft_addinfo(){
-    std::cout << "first_name: ";
-    std::getline(std::cin, first_name);
-    if (std::cin.eof())
-        return ;
-    std::cout << "last_name: ";
-    std::getline(std::cin, last_name);
-    if (std::cin.eof())
-        return ;
-    std::cout << "nickname: ";
-    std::getline(std::cin, nickname);
-    if (std::cin.eof())
-        return ;
+    ft_readattr("first_name: ", &first_name);
+    ft_readattr("last_name: ", &last_name);
+    ft_readattr("nickname: ", &nickname);
     while (1)
     {
         int status=0;
@@ -96,6 +103,10 @@ void    contact::ft_addinfo(){
         std::getline(std::cin, phone_number);
         if (std::cin.eof())
             return ;
+        if (phone_number == "\0"){
+            std::cout << "Please write somthing\n";
+            continue;
+        }
         int l = phone_number.size();
         for (int i = 0; i < l; i++)
         {
@@ -111,10 +122,7 @@ void    contact::ft_addinfo(){
         else
             break;
     }
-    std::cout << "darkest_secret: ";
-    std::getline(std::cin, darkest_secret);
-    if (std::cin.eof())
-        return ;
+    ft_readattr("darkest_secret: ", &darkest_secret);
 }
 
 void    phonebook::ft_addc(void){
