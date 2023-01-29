@@ -5,16 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/22 15:44:29 by ressalhi          #+#    #+#              #
-#    Updated: 2023/01/27 17:44:39 by ressalhi         ###   ########.fr        #
+#    Created: 2023/01/24 20:12:12 by ressalhi          #+#    #+#              #
+#    Updated: 2023/01/24 20:12:42 by ressalhi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = a.out
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp reda.cpp
-
+SRC = main.cpp Fixed.cpp
 all : $(NAME)
 
 $(NAME) :
