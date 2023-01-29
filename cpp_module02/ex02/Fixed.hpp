@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:12:58 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/29 14:35:28 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/29 16:38:32 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,38 +37,17 @@ class Fixed
         Fixed operator--(int);
         float   toFloat(void) const;
         int     toInt(void) const;
-        static const Fixed& min(Fixed& a, Fixed& b){
-            if (a > b)
-                return (b);
-            else
-                return (a);
-        }
-        static const Fixed& min(const Fixed& a, const Fixed& b){
-            if (a > b)
-                return (b);
-            else
-                return (a);
-        }
-        
-        static const Fixed& max(Fixed& a, Fixed& b){
-            if (a < b)
-                return (b);
-            else
-                return (a);
-        }
-        
-        static const Fixed& max(const Fixed& a, const Fixed& b){
-            if (a < b)
-                return (b);
-            else
-                return (a);
-        }
+        static const Fixed& min(Fixed& a, Fixed& b);
+        static const Fixed& min(const Fixed& a, const Fixed& b);
+        static const Fixed& max(Fixed& a, Fixed& b);
+        static const Fixed& max(const Fixed& a, const Fixed& b);
         bool    operator>(const Fixed& Fixed) const;
         bool    operator<(const Fixed& Fixed) const;
         bool    operator>=(const Fixed& Fixed) const;
         bool    operator<=(const Fixed& Fixed) const;
         bool    operator==(const Fixed& Fixed) const;
         bool    operator!=(const Fixed& Fixed) const;
+        int     getRawbits(void) const;
         ~Fixed();
 };
 
