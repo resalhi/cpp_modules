@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:52:56 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/30 18:42:17 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:01:37 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,32 @@ ClapTrap::ClapTrap()
 {
     std::cout << "ClapTrap Default constructor called\n";
     this->name = "random";
-    this->hit_points = 100;
-    this->energy_points = 50;
-    this->attack_damage = 20;
+    this->hit_points = 10;
+    this->energy_points = 10;
+    this->attack_damage = 0;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
     std::cout << "ClapTrap parameterized constructor called\n";
     this->name = name;
-    this->hit_points = 100;
-    this->energy_points = 50;
-    this->attack_damage = 20;
+    this->hit_points = 10;
+    this->energy_points = 10;
+    this->attack_damage = 0;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &claptrap){
+    std::cout << "ClapTrap Copy constructor called\n";
+    this->operator=(claptrap);
+}
+
+ClapTrap& ClapTrap::operator=(ClapTrap const &claptrap){
+    std::cout << "ClapTrap Copy assignment operator called\n";
+    this->name = claptrap.name;
+    this->hit_points = claptrap.hit_points;
+    this->energy_points = claptrap.energy_points;
+    this->attack_damage = claptrap.attack_damage;
+    return (*this);
 }
 
 void ClapTrap::attack(const std::string& target){

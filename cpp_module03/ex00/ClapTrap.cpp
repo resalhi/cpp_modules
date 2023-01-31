@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:52:56 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/30 16:34:40 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:00:21 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,20 @@ ClapTrap::ClapTrap(std::string name)
     this->hit_points = 10;
     this->energy_points = 10;
     this->attack_damage = 0;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &claptrap){
+    std::cout << "Copy constructor called\n";
+    this->operator=(claptrap);
+}
+
+ClapTrap& ClapTrap::operator=(ClapTrap const &claptrap){
+    std::cout << "Copy assignment operator called\n";
+    this->name = claptrap.name;
+    this->hit_points = claptrap.hit_points;
+    this->energy_points = claptrap.energy_points;
+    this->attack_damage = claptrap.attack_damage;
+    return (*this);
 }
 
 void ClapTrap::attack(const std::string& target){
@@ -55,7 +69,6 @@ void ClapTrap::beRepaired(unsigned int amount){
     std::cout << "ClapTrap " << name << " is repaired and gains " << amount << " health points\n";
 }
 
-ClapTrap::~ClapTrap()
-{
+ClapTrap::~ClapTrap(){
     std::cout << "Destructor called\n";
 }

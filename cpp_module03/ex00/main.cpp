@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:53:01 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/30 16:52:45 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:59:22 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int main()
 {
-    ClapTrap player1("player1");
+    ClapTrap a;
+    ClapTrap b("lee");
+    ClapTrap c(a);
 
-    player1.attack("player2");
-    player1.takeDamage(50);
-    player1.beRepaired(40);
+    a.attack("lillia");
+    b.attack("graves");
+    c.attack("zed");
 }
