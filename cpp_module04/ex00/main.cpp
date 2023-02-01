@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 14:58:36 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/01 15:06:34 by ressalhi         ###   ########.fr       */
+/*   Created: 2023/02/01 19:15:35 by ressalhi          #+#    #+#             */
+/*   Updated: 2023/02/01 22:02:57 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-void    Zombie::announce(void){
-    std::cout << name << ": BraiiiiiiinnnzzzZ...\n";
-}
-
-Zombie::Zombie(std::string name){
-    this->name = name;
-}
-
-Zombie::~Zombie(){
-    std::cout << name << ": Desrucor Called\n";
+int main()
+{
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    // std::cout << j->getType() << " " << std::endl;
+    // std::cout << i->getType() << " " << std::endl;
+    i->makeSound(); //will output the cat sound!
+    j->makeSound();
+    meta->makeSound();
+    return 0;
 }

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 14:58:36 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/01 15:06:34 by ressalhi         ###   ########.fr       */
+/*   Created: 2023/02/01 19:15:46 by ressalhi          #+#    #+#             */
+/*   Updated: 2023/02/01 21:55:59 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Cat.hpp"
 
-void    Zombie::announce(void){
-    std::cout << name << ": BraiiiiiiinnnzzzZ...\n";
+Cat::Cat(){
+    this->type = "CAT";
 }
 
-Zombie::Zombie(std::string name){
-    this->name = name;
+Cat::Cat(Cat const &cat){
+    this->operator=(cat);
+}
+Cat& Cat::operator=(Cat const &cat){
+    this->type = cat.type;
+    return (*this);
 }
 
-Zombie::~Zombie(){
-    std::cout << name << ": Desrucor Called\n";
+void    Cat::makeSound(void){
+    std::cout << "Meao Meao\n";
+}
+
+Cat::~Cat(){
+    std::cout << "Cat Destructor Called\n";
 }

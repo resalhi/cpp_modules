@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 14:58:36 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/01 15:06:34 by ressalhi         ###   ########.fr       */
+/*   Created: 2023/02/01 19:15:40 by ressalhi          #+#    #+#             */
+/*   Updated: 2023/02/01 21:56:16 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Dog.hpp"
 
-void    Zombie::announce(void){
-    std::cout << name << ": BraiiiiiiinnnzzzZ...\n";
+Dog::Dog(){
+    this->type = "DOG";
 }
 
-Zombie::Zombie(std::string name){
-    this->name = name;
+Dog::Dog(Dog const &dog){
+    this->operator=(dog);
+}
+Dog& Dog::operator=(Dog const &dog){
+    this->type = dog.type;
+    return (*this);
 }
 
-Zombie::~Zombie(){
-    std::cout << name << ": Desrucor Called\n";
+void    Dog::makeSound(void){
+    std::cout << "Bark Bark\n";
+}
+
+Dog::~Dog(){
+    std::cout << "Dog Destructor Called\n";
 }

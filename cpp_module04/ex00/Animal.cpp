@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 14:58:36 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/01 15:06:34 by ressalhi         ###   ########.fr       */
+/*   Created: 2023/02/01 19:15:52 by ressalhi          #+#    #+#             */
+/*   Updated: 2023/02/01 22:00:20 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Animal.hpp"
 
-void    Zombie::announce(void){
-    std::cout << name << ": BraiiiiiiinnnzzzZ...\n";
+Animal::Animal(){
+    this->type = "7mar";
 }
 
-Zombie::Zombie(std::string name){
-    this->name = name;
+Animal::Animal(Animal const &animal){
+    this->operator=(animal);
+}
+Animal& Animal::operator=(Animal const &animal){
+    this->type = animal.type;
+    return (*this);
 }
 
-Zombie::~Zombie(){
-    std::cout << name << ": Desrucor Called\n";
+void    Animal::makeSound(void){
+    std::cout << "hhhhhhhh\n";
+}
+
+Animal::~Animal(){
+    std::cout << "Animal Destructor Called\n";
 }
