@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:53:33 by ressalhi          #+#    #+#             */
-/*   Updated: 2022/11/25 18:28:51 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:20:39 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ class Zombie
     private:
         std::string name;
     public:
-        void    announce(void);
         Zombie(std::string name);
-        ~Zombie(){
-            std::cout << name << std::endl;
-        }
+        void    announce(void);
+        ~Zombie();
 };
 
 Zombie* newZombie(std::string name);

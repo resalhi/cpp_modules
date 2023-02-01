@@ -6,13 +6,12 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 17:05:23 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/23 15:14:41 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:00:31 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
 
 int main(int ac, char **av)
 {

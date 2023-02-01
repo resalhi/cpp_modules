@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:02:42 by ressalhi          #+#    #+#             */
-/*   Updated: 2022/11/28 22:39:20 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:37:08 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,8 @@ class Weapon
         std::string type;
     public:
         Weapon(std::string name);
-        void    setType(std::string name){
-            type = name;
-        }
-        const std::string& getType(){
-            return (type);
-        }
+        void    setType(std::string name);
+        const std::string& getType();
 };
 
 #endif

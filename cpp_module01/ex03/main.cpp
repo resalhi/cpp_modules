@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:02:33 by ressalhi          #+#    #+#             */
-/*   Updated: 2022/11/28 22:42:05 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:50:56 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ int main()
         club.setType("some other type of club");
         jim.attack();
     }
+    
+    return (0);
 }

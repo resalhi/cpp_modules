@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:02:23 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/23 16:18:40 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:46:43 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ class HumanA
         Weapon  &weapon;
     public:
         HumanA(std::string name, Weapon &weapon);
-        void    attack(){
-            std::cout << name << " attacks with their " << weapon.getType() << std::endl;
-        }
+        void    attack();
 };
 
 #endif

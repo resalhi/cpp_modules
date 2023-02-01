@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:02:30 by ressalhi          #+#    #+#             */
-/*   Updated: 2022/11/29 16:59:27 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:48:27 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,8 @@ class HumanB
         Weapon  *weapon;
     public:
         HumanB(std::string name);
-        void    setWeapon(Weapon &club){
-            weapon = &club;
-        }
-        void    attack(){
-            std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-        }
+        void    setWeapon(Weapon &club);
+        void    attack();
 };
 
 #endif
