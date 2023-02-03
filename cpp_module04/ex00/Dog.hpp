@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:15:37 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/01 21:54:55 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:20:41 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ class Dog: public Animal
         Dog();
         Dog(Dog const &dog);
         Dog& operator=(Dog const &dog);
-        void    makeSound(void);
+        void    makeSound(void) const;
+        std::string getType(void) const;
+        void    setType(std::string type);
         ~Dog();
 };
 

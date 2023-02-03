@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:15:46 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/01 21:55:59 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:27:33 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,16 @@ Cat& Cat::operator=(Cat const &cat){
     return (*this);
 }
 
-void    Cat::makeSound(void){
+void    Cat::makeSound(void) const{
     std::cout << "Meao Meao\n";
+}
+
+std::string Cat::getType(void) const{
+    return (type);
+}
+
+void    Cat::setType(std::string type){
+    this->type = type;
 }
 
 Cat::~Cat(){
