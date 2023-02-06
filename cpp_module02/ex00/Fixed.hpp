@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:12:58 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/28 12:45:39 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/05 11:58:53 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ class Fixed
         int getRawBits(void) const;
         void setRawBits( int const raw );
 };
-
 
 #endif
