@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 17:07:23 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/09 15:42:48 by ressalhi         ###   ########.fr       */
+/*   Created: 2023/02/12 13:52:14 by ressalhi          #+#    #+#             */
+/*   Updated: 2023/02/12 16:55:17 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-#include "ClapTrap.hpp"
-#include <iostream>
+#include "AForm.hpp"
 
-class ScavTrap: public ClapTrap
+class RobotomyRequestForm: public AForm
 {
+    private:
+        std::string target;
     public:
-        ScavTrap();
-        ScavTrap(std::string name);
-        ScavTrap(ScavTrap const &scavtrap);
-        ScavTrap& operator=(ScavTrap const &scavtrap);
-        ~ScavTrap();
-        void    guardGate(void);
+        RobotomyRequestForm();
+        RobotomyRequestForm(std::string target);
+        RobotomyRequestForm(RobotomyRequestForm const &robo);
+        RobotomyRequestForm& operator=(RobotomyRequestForm const &robo);
+        ~RobotomyRequestForm();
 };
+
+
+
 
 #endif

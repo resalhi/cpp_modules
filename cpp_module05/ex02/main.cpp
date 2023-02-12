@@ -5,19 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 20:12:56 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/08 12:55:00 by ressalhi         ###   ########.fr       */
+/*   Created: 2023/02/05 13:28:52 by ressalhi          #+#    #+#             */
+/*   Updated: 2023/02/12 20:24:18 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-int main( void ) {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
+int main()
+{
+    try
+	{
+		Bureaucrat f("l9ayed", 40);
+		AForm l("contra", 50, 20);
+		l.execute(f);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:13:00 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/01/29 12:23:54 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:00:00 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ float Fixed::toFloat(void) const{
 }
 
 int Fixed::toInt(void) const{
-    return (int)(roundf(this->fixed >> this->fixedbit));
+    return (int)(roundf(this->fixed / (1 << this->fixedbit)));
 }
 
 Fixed::~Fixed(){
