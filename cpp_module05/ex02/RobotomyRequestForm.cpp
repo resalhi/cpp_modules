@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:52:11 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/12 17:00:12 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/13 13:51:00 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm(target, 145, 
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &robo):AForm(robo.target, 145, 137){
     this->operator=(robo);
+}
+
+void    RobotomyRequestForm::execute(Bureaucrat const &excutor) const{
+    if (excutor.getGrade() <= this->getGradeExecute())
+        std::cout << target << " has been robotomized successfully 50% of the time\n";
+    else{
+        std::cout << target << " robotomy execute failed\n";
+        throw AForm::GradeTooLowException();
+    }
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const &robo){

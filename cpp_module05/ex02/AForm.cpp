@@ -38,6 +38,7 @@ void    AForm::beSigned(Bureaucrat const &bureaucrat){
     else
         this->_signed = true;
 }
+
 void    AForm::execute(Bureaucrat const &excutor) const{
     std::cout << excutor.getName() << " excuted " << name << std::endl;
 }

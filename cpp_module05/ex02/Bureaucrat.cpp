@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:28:58 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/12 18:37:32 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/13 13:25:51 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ void    Bureaucrat::excuteForm(AForm const &form){
         std::cout << "Bureaucrat grade is too low\n";
     if (!form.get_signed())
         std::cout << "Form Not Signed!!\n";
-    else
+    else{
+        std::cout << name << " executed " << form.getName() << std::endl;
         form.execute(*this);
+    }
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat){
