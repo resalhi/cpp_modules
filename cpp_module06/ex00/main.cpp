@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:26:14 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/13 18:38:20 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:45:10 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ convert::convert(std::string arg){
     f = static_cast<float>(num);
     d = static_cast<double>(num);
 
-    if (i >= 32 && i <=126)
+    if (i >= 32 && i <= 126)
         std::cout << "char: '" << c << "'" << std::endl;
     else if (std::isnan(num) || std::isinf(num))
         std::cout << "char: impossible\n";

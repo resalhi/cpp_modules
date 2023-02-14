@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 16:53:01 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/14 13:28:03 by ressalhi         ###   ########.fr       */
+/*   Created: 2023/02/13 20:03:12 by ressalhi          #+#    #+#             */
+/*   Updated: 2023/02/13 20:13:18 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+#ifndef C_HPP
+# define C_HPP
 
-int main()
+#include "Base.hpp"
+
+class C: public Base
 {
-    ClapTrap a;
-    ClapTrap b("muslim");
-    ClapTrap c(b);
+    public:
+        ~C();
+};
 
-    a.attack("lkofar");
-    a.takeDamage(10);
-    a.beRepaired(20);
-    b.attack("monafi9in");
-    b.takeDamage(10);
-    b.beRepaired(20);
-    c.attack("lihod");
-    c.takeDamage(10);
-    c.beRepaired(20);
-}
+#endif
