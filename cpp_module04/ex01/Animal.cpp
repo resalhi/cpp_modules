@@ -6,27 +6,29 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:15:52 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/04 14:24:14 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:34:33 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal(){
-    std::cout << "Animal Constructor Called\n";
-    this->type = "7mar";
+    std::cout << "Animal Default Constructor Called\n";
+    this->type = "animal";
 }
 
 Animal::Animal(Animal const &animal){
+    std::cout << "Animal Copy Constructor Called\n";
     this->operator=(animal);
 }
+
 Animal& Animal::operator=(Animal const &animal){
     this->type = animal.type;
     return (*this);
 }
 
 void    Animal::makeSound(void) const{
-    std::cout << "hhhhhhhh\n";
+    std::cout << "animal voice\n";
 }
 
 std::string Animal::getType(void) const{

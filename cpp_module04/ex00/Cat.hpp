@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:15:43 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/03 18:27:35 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:59:07 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@ class Cat: public Animal
         std::string getType(void) const;
         void    setType(std::string type);
         ~Cat();
+};
+
+class WrongCat: public WrongAnimal
+{
+    public:
+        WrongCat();
+        WrongCat(WrongCat const &Wrongcat);
+        WrongCat& operator=(WrongCat const &Wrongcat);
+        void    makeSound(void) const;
+        std::string getType(void) const;
+        void    setType(std::string type);
+        ~WrongCat();
 };
 
 #endif

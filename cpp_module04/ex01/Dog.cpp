@@ -6,15 +6,15 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:15:40 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/04 19:30:18 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:15:38 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 Dog::Dog(){
-    std::cout << "DOG constructor Called\n";
-    this->type = "DOG";
+    std::cout << "DOG Default constructor Called\n";
+    this->type = "Dog";
     this->brain = new Brain();
 }
 

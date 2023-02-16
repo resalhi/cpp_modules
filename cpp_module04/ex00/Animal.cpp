@@ -6,17 +6,19 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:15:52 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/02 14:02:43 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:55:24 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal(){
-    this->type = "7mar";
+    std::cout << "Animal Default Constructor Called\n";
+    this->type = "animal";
 }
 
 Animal::Animal(Animal const &animal){
+    std::cout << "Animal Copy Constructor Called\n";
     this->operator=(animal);
 }
 Animal& Animal::operator=(Animal const &animal){
@@ -25,7 +27,7 @@ Animal& Animal::operator=(Animal const &animal){
 }
 
 void    Animal::makeSound(void) const{
-    std::cout << "hhhhhhhh\n";
+    std::cout << "animal voice\n";
 }
 
 std::string Animal::getType(void) const{
@@ -38,4 +40,34 @@ void    Animal::setType(std::string type){
 
 Animal::~Animal(){
     std::cout << "Animal Destructor Called\n";
+}
+
+WrongAnimal::WrongAnimal(){
+    std::cout << "WrongAnimal Default Constructor Called\n";
+    this->type = "Wronganimal";
+}
+
+WrongAnimal::WrongAnimal(WrongAnimal const &Wronganimal){
+    std::cout << "WrongAnimal Copy Constructor Called\n";
+    this->operator=(Wronganimal);
+}
+WrongAnimal& WrongAnimal::operator=(WrongAnimal const &Wronganimal){
+    this->type = Wronganimal.type;
+    return (*this);
+}
+
+void    WrongAnimal::makeSound(void) const{
+    std::cout << "Wronganimal voice\n";
+}
+
+std::string WrongAnimal::getType(void) const{
+    return (type);
+}
+
+void    WrongAnimal::setType(std::string type){
+    this->type = type;
+}
+
+WrongAnimal::~WrongAnimal(){
+    std::cout << "WrongAnimal Destructor Called\n";
 }

@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:15:43 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/04 13:38:15 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:28:40 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Cat: public Animal
         void    makeSound(void) const;
         std::string getType(void) const;
         void    setType(std::string type);
-        ~Cat();
+        virtual ~Cat();
 };
 
 #endif

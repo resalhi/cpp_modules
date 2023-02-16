@@ -6,15 +6,15 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:15:46 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/04 19:30:11 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:15:07 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat(){
-    std::cout << "Cat Constructor Called\n";
-    this->type = "CAT";
+    std::cout << "Cat Default Constructor Called\n";
+    this->type = "Cat";
     this->brain = new Brain();
 }
 
