@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:58:47 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/13 16:16:56 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:47:46 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 AForm* Intern::makeForm(std::string formname, std::string target){
     AForm *obj = NULL;
-    int index=3;int i;
+    int index=3;
     std::string s[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-    for (i = 0; i < 3; i++){
+    for (int i = 0; i < 3; i++){
         if (s[i] == formname)
             index = i;
     }

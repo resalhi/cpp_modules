@@ -6,20 +6,25 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:52:11 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/13 13:51:00 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:40:06 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm():AForm("contra", 72, 45), target("contra")
+RobotomyRequestForm::RobotomyRequestForm():AForm("robot", 72, 45), target("robot")
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm(target, 145, 137), target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm(target, 72, 45), target(target)
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &robo):AForm(robo.target, 145, 137){
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &robo):AForm(robo.target, 72, 45){
     this->operator=(robo);
+}
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const &robo){
+    this->target = robo.target;
+    return (*this);
 }
 
 void    RobotomyRequestForm::execute(Bureaucrat const &excutor) const{
@@ -29,11 +34,6 @@ void    RobotomyRequestForm::execute(Bureaucrat const &excutor) const{
         std::cout << target << " robotomy execute failed\n";
         throw AForm::GradeTooLowException();
     }
-}
-
-RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const &robo){
-    this->target = robo.target;
-    return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(){}

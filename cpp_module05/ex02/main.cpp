@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:28:52 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/13 13:51:27 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:40:54 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,35 @@ int main()
 {
     try
 	{
-		Bureaucrat f("l9ayed", 40);
-		ShrubberyCreationForm k("");
-		RobotomyRequestForm p("kamal");
-		PresidentialPardonForm l("3issa");
-		k.execute(f);
-		p.execute(f);
-		l.execute(f);
+		Bureaucrat f("l9ayed", 1);
+		ShrubberyCreationForm k("chajara");
+		f.excuteForm(k);
+		k.beSigned(f);
+		f.excuteForm(k);
 	}
-	catch(const std::exception& e)
+	catch(const std::exception& e){
+		std::cout << e.what() << std::endl;
+	}
+	try
 	{
+		Bureaucrat f("l9ayed", 1);
+		RobotomyRequestForm p("pepper");
+		f.excuteForm(p);
+		p.beSigned(f);
+		f.excuteForm(p);
+	}
+	catch(const std::exception& e){
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat f("l9ayed", 1);
+		PresidentialPardonForm l("obama");
+		f.excuteForm(l);
+		l.beSigned(f);
+		f.excuteForm(l);
+	}
+	catch(const std::exception& e){
 		std::cout << e.what() << std::endl;
 	}
 }

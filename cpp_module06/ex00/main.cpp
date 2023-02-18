@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:26:14 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/13 19:45:10 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:09:12 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 #include <iomanip>
 #include <cmath>
 
-class convert
+class ScalarConverter
 {
-    private:
-        char c;
-        int i;
-        float f;
-        double d;
-        float num;
     public:
-        convert(std::string arg);
+        static void convert(std::string arg);
 };
 
-convert::convert(std::string arg){
+void    ScalarConverter::convert(std::string arg){
+    char c;
+    int i;
+    float f;
+    double d;
+    float num;
     num = std::stof(arg);
     c = static_cast<char>(num);
     i = static_cast<int>(num);
@@ -52,5 +51,12 @@ int main(int ac, char **av)
 {
     if (ac != 2 || av[1][0] == '\0')
         return (0);
-    convert obj(av[1]);
+    try{
+        ScalarConverter obj;
+        obj.convert(av[1]);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
