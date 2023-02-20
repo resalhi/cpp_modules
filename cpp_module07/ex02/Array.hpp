@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 19:47:31 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/17 16:24:08 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/19 13:50:43 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,14 @@ class Array
         ~Array(){
             delete [] a;
         }
-        T &operator[](unsigned int i) const {
+        T &operator[](unsigned int i) {
             if (i >= len)
-                throw std::exception();
+                throw (std::out_of_range("exeption: out_of_range"));
+            return (a[i]);
+        }
+        const T &operator[](unsigned int i) const {
+            if (i >= len)
+                throw (std::out_of_range("exeption: out_of_range"));
             return (a[i]);
         }
         unsigned int size() const{
