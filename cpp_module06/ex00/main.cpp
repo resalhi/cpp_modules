@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:26:14 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/18 14:09:12 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:49:32 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,9 @@ int main(int ac, char **av)
     if (ac != 2 || av[1][0] == '\0')
         return (0);
     try{
-        ScalarConverter obj;
-        obj.convert(av[1]);
+        ScalarConverter::convert(av[1]);
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e){
         std::cerr << e.what() << '\n';
     }
 }

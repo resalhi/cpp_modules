@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:26:14 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/15 16:26:54 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:09:17 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    identify(Base* p){
         std::cout << "C\n";
 }
 
-void    identify1(Base& p){
+void    identify(Base& p){
     try {
         A& a = dynamic_cast<A&>(p);
         std::cout << "A\n";
@@ -71,6 +71,7 @@ Base* generate(void){
 int main()
 {
     Base *ptr = generate();
-    identify1(*ptr);
+    identify(*ptr);
+    identify(ptr);
     delete ptr;
 }
