@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 19:47:31 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/19 13:50:43 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:03:50 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Array
         unsigned int len;
     public:
         Array(){
-            a = nullptr;
+            a = new T[0];
             len = 0;
         }
         Array(unsigned int n){
