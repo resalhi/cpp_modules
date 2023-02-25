@@ -6,11 +6,11 @@
 #    By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 19:46:43 by ressalhi          #+#    #+#              #
-#    Updated: 2023/02/20 20:55:02 by ressalhi         ###   ########.fr        #
+#    Updated: 2023/02/25 13:29:33 by ressalhi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = ex01
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Span.cpp

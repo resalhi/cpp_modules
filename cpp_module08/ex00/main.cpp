@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 19:46:56 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/21 13:50:20 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:19:10 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,19 @@
 int main()
 {
     std::vector<int> con;
-    con.push_back(1);
-    con.push_back(2);
-    con.push_back(3);
-    con.push_back(4);
-    con.push_back(5);
+    con.push_back(10);
+    con.push_back(24);
+    con.push_back(35);
+    con.push_back(47);
+    con.push_back(52);
     try{
-        std::vector<int>::iterator it = easyfind(con, 2);
-        std::cout << *it << '\n';
+        std::cout << easyfind(con, 47) << '\n';
+    }
+    catch(const std::exception& e){
+        std::cout << e.what() << '\n';
+    }
+    try{
+        std::cout << easyfind(con, 100) << '\n';
     }
     catch(const std::exception& e){
         std::cout << e.what() << '\n';

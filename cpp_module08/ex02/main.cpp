@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:47:02 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/02/24 20:57:01 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/02/25 14:45:37 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,4 @@ int main()
         std::cout << *it << std::endl;
         ++it;
     }
-    std::cout << "---------------\n";
-    std::stack<int> s(mstack);
-    while (!s.empty())
-    {
-        std::cout << s.top() << std::endl;
-        s.pop();
-    }
-    
 }
