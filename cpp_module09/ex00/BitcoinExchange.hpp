@@ -28,7 +28,7 @@ class BitcoinExchange
         std::string value;
         double val;
         std::string err;
-        std::map<std::string, float> data;
+        std::map<std::string, std::string> data;
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& obj);
@@ -38,6 +38,8 @@ class BitcoinExchange
         int countstr(std::stringstream *s);
         bool parse_date();
         bool parse_value();
+        void    get_value();
+        void    get_closest_date();
 };
 
 #endif

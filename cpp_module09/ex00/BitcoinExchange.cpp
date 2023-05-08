@@ -22,8 +22,7 @@ BitcoinExchange::BitcoinExchange(){
     std::getline(file, s1);
     while (std::getline(file, s1, ',')){
         std::getline(file, s2);
-        float n = std::stof(s2);
-        this->data.insert(std::make_pair(s1, n));
+        this->data.insert(std::make_pair(s1, s2));
     }
     file.close();
 }
@@ -102,6 +101,53 @@ bool BitcoinExchange::parse_value(){
     return true;
 }
 
+void    BitcoinExchange::get_closest_date(){
+    std::string ss;
+    double v;
+    int y, m, d;
+    char sep;
+
+    ss = this->data[this->date];
+    std::istringstream s(this->date);
+    s >> y >> sep >> m >> sep >> d;
+    while (ss.empty()){
+        // std::cout << "heeeeeeere ------> "<< y << " - " << m << " - " << d << "\n";
+        d--;
+        if (d == 0){
+            m--;
+            if (m == 0){
+                y--;
+                m = 12;d = 31;
+            }
+            else{
+                if (m == 2 || m == 4 || m == 6 || m == 9 || m == 11)
+                    d = 30;
+                else
+                    d = 31;
+            }
+        }
+        std::string str = std::to_string(y) + '-' + std::to_string(m) + '-' + std::to_string(d);
+        ss = this->data[str];
+    }
+    v = strtod(ss.c_str(), NULL);
+    if (!ss.empty())
+        std::cout << this->date << " => " << this->value << " = " << strtod(this->value.c_str(), NULL)*v << '\n';
+}
+
+void    BitcoinExchange::get_value(){
+    std::string str;
+    double v;
+
+    str = this->data[this->date];
+    if (str.empty()){
+        get_closest_date();
+    }
+    else{
+        v = strtod(str.c_str(), NULL);
+        std::cout << this->date << " => " << this->value << " = " << strtod(this->value.c_str(), NULL)*v << '\n';
+    }
+}
+
 void    BitcoinExchange::openfile(std::string str){
     std::ifstream file;
     file.open(str, std::ios::in);
@@ -122,6 +168,7 @@ void    BitcoinExchange::openfile(std::string str){
             std::cout << this->err;
             continue;
         }
+        get_value();
     }
 }
 
