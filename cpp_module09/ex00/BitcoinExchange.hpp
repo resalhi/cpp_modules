@@ -40,6 +40,7 @@ class BitcoinExchange
         bool parse_value();
         void    get_value();
         void    get_closest_date();
+        void    reset();
 };
 
 #endif

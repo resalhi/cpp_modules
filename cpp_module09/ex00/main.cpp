@@ -16,7 +16,7 @@ int main(int ac, char **av)
 {
     try{
         if (ac != 2)
-            return 0;
+            throw std::runtime_error("Error: could not open file.");
         BitcoinExchange obj;
         obj.openfile(av[1]);
     }

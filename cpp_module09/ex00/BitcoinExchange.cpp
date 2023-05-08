@@ -33,6 +33,11 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj){
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj){
     this->data = obj.data;
+    this->date = obj.date;
+    this->pipe = obj.pipe;
+    this->value = obj.value;
+    this->val = obj.val;
+    this->err = obj.err;
     return *this;
 }
 
@@ -111,7 +116,6 @@ void    BitcoinExchange::get_closest_date(){
     std::istringstream s(this->date);
     s >> y >> sep >> m >> sep >> d;
     while (ss.empty()){
-        // std::cout << "heeeeeeere ------> "<< y << " - " << m << " - " << d << "\n";
         d--;
         if (d == 0){
             m--;
@@ -126,12 +130,23 @@ void    BitcoinExchange::get_closest_date(){
                     d = 31;
             }
         }
-        std::string str = std::to_string(y) + '-' + std::to_string(m) + '-' + std::to_string(d);
+        std::string day, mon;
+        day = std::to_string(d);
+        mon = std::to_string(m);
+        if (day.size() == 1)
+            day = '0'+day;
+        if (mon.size() == 1)
+            mon = '0'+mon;
+        std::string str = std::to_string(y) + '-' + mon + '-' + day;
+        if (y < 2009){
+            std::cout << "Error: bad input => " << this->date<<'\n';
+            return ; 
+        }
         ss = this->data[str];
     }
     v = strtod(ss.c_str(), NULL);
     if (!ss.empty())
-        std::cout << this->date << " => " << this->value << " = " << strtod(this->value.c_str(), NULL)*v << '\n';
+        std::cout << this->date << " => " << this->value << " = " << this->val*v << '\n';
 }
 
 void    BitcoinExchange::get_value(){
@@ -144,31 +159,42 @@ void    BitcoinExchange::get_value(){
     }
     else{
         v = strtod(str.c_str(), NULL);
-        std::cout << this->date << " => " << this->value << " = " << strtod(this->value.c_str(), NULL)*v << '\n';
+        std::cout << this->date << " => " << this->value << " = " << this->val*v << '\n';
     }
+}
+
+void    BitcoinExchange::reset(){
+    this->date = "";
+    this->pipe = "";
+    this->value = "";
+    this->val = 0;
 }
 
 void    BitcoinExchange::openfile(std::string str){
     std::ifstream file;
     file.open(str, std::ios::in);
     if (!file)
-        throw std::runtime_error("Open File Error\n");
+        throw std::runtime_error("Error: could not open file.");
     std::string s;
     while (std::getline(file, s)){
         std::stringstream ss(s);
         if (countstr(&ss) != 3){
-            std::cout << "Error: bad input => " << this->date << '\n';
+            std::cout << "Error: bad input => " << this->date+this->pipe+this->value << '\n';
+            reset();
             continue;
         }
         if (!parse_date()){
-            std::cout << "Error: bad input => " << this->date << '\n';
+            std::cout << "Error: bad input => " << this->date+this->pipe+this->value << '\n';
+            reset();
             continue;
         }
         if (!parse_value()){
             std::cout << this->err;
+            reset();
             continue;
         }
         get_value();
+        reset();
     }
 }
 
