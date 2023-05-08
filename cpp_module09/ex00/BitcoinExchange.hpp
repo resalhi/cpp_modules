@@ -26,6 +26,7 @@ class BitcoinExchange
         std::string date;
         std::string pipe;
         std::string value;
+        double val;
         std::string err;
         std::map<std::string, float> data;
     public:
@@ -35,8 +36,8 @@ class BitcoinExchange
         ~BitcoinExchange();
         void    openfile(std::string str);
         int countstr(std::stringstream *s);
-        int parse_date();
-        int parse_value();
+        bool parse_date();
+        bool parse_value();
 };
 
 #endif
