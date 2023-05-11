@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:37 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/10 23:12:15 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/11 17:00:55 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,24 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <list>
 #include <string>
 #include <sstream>
 #include <ctime>
+#include <deque>
 
 class PmergeMe
 {
     private:
-        int len;
         std::vector<long> vec;
-        std::list<long> list;
+        std::deque<long> deque;
     public:
         PmergeMe();
-        std::vector<long> get_vec();
-        std::list<long> get_list();
-        PmergeMe(int ac, char **av);
+        PmergeMe(const PmergeMe &obj);
+        PmergeMe& operator=(const PmergeMe &obj);
         ~PmergeMe();
+        PmergeMe(int ac, char **av);
+        std::vector<long> get_vec();
+        std::deque<long> get_deque();
 };
 
 #endif

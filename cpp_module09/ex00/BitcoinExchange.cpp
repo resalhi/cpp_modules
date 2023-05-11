@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:54:56 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/03/14 21:09:38 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:27:14 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ bool BitcoinExchange::parse_value(){
         this->err = "Error: not a positive number.\n";
         return false;
     }
-    if (val > 2147483647){
+    if (val > 1000){
         this->err = "Error: too large a number.\n";
         return false;
     }
@@ -179,12 +179,12 @@ void    BitcoinExchange::openfile(std::string str){
     while (std::getline(file, s)){
         std::stringstream ss(s);
         if (countstr(&ss) != 3){
-            std::cout << "Error: bad input => " << this->date+this->pipe+this->value << '\n';
+            std::cout << "Error: bad input => " << s << '\n';
             reset();
             continue;
         }
         if (!parse_date()){
-            std::cout << "Error: bad input => " << this->date+this->pipe+this->value << '\n';
+            std::cout << "Error: bad input => " << s << '\n';
             reset();
             continue;
         }

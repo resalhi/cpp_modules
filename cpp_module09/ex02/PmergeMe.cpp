@@ -6,13 +6,23 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:34 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/10 18:47:43 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/11 17:03:29 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe(){}
+
+PmergeMe::PmergeMe(const PmergeMe &obj){
+    this->operator=(obj);
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe &obj){
+    this->vec = obj.vec;
+    this->deque = obj.deque;
+    return *this;
+}
 
 bool    str_isdigit(std::string str){
     if (str[0] == '+' && str.size() > 1)
@@ -30,13 +40,12 @@ PmergeMe::PmergeMe(int ac, char **av){
             throw std::runtime_error("Error");
         long n = strtol(av[i], NULL, 10);
         this->vec.push_back(n);
-        this->list.push_back(n);
+        this->deque.push_back(n);
     }
-    this->len = ac - 1;
 }
 
 std::vector<long> PmergeMe::get_vec(){ return this->vec; }
 
-std::list<long> PmergeMe::get_list(){ return this->list; }
+std::deque<long> PmergeMe::get_deque(){ return this->deque; }
 
 PmergeMe::~PmergeMe(){}
