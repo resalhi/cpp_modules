@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:37 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/11 17:00:55 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:46:59 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PMERGEME_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
 #include <vector>
 #include <string>

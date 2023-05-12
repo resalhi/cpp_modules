@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:54:56 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/11 18:27:14 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:19:01 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ bool BitcoinExchange::parse_date(){
     char sep;
 
     if (s >> y >> sep && sep == '-' && s >> m >> sep && sep == '-' && s >> d){
+        if (s >> str)
+            return false;
         if ((y < 2009 || y > 2022) || (m < 1 || m > 12) || (d < 1 || d > 31))
             return false;
         if (m == 2){
@@ -87,7 +89,7 @@ bool isDouble(const std::string& str) {
 }
 
 bool BitcoinExchange::parse_value(){
-    this->err = "Error: bad input => " + this->date+this->pipe+this->value+"\n";
+    this->err = "Error: bad input => "+this->date+" "+this->pipe+" "+this->value+"\n";
     if (this->pipe != "|")
         return false;
     if (!isDouble(this->value)){
@@ -139,7 +141,7 @@ void    BitcoinExchange::get_closest_date(){
             mon = '0'+mon;
         std::string str = std::to_string(y) + '-' + mon + '-' + day;
         if (y < 2009){
-            std::cout << "Error: bad input => " << this->date<<'\n';
+            std::cout << "Error: bad input => " << this->date <<'\n';
             return ; 
         }
         ss = this->data[str];

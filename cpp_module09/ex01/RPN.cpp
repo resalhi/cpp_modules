@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:12:59 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/11 17:38:12 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:42:40 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ RPN::RPN(char *av){
         }
         else if (str_isdigit(str)){
             long x = strtol(str.c_str(), NULL, 10);
-            if (x > 10){
+            if (x >= 10){
                 for (size_t i=0;i < str.size();i++){
                     std::string c;
                     c += str[i];

@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:13:02 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/11 17:35:22 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:28:25 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ class RPN
         RPN& operator=(const RPN &obj);
         ~RPN();
 };
-
 
 #endif

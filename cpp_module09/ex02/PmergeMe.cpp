@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:34 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/11 17:03:29 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:38:59 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ PmergeMe::PmergeMe(int ac, char **av){
     for (int i = 1; i < ac; i++){
         if (!str_isdigit(av[i]))
             throw std::runtime_error("Error");
-        long n = strtol(av[i], NULL, 10);
+        double n = strtod(av[i], NULL);
+        if (n > 2147483647)
+            throw std::runtime_error("Error");
         this->vec.push_back(n);
         this->deque.push_back(n);
     }
