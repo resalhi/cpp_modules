@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:54:56 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/12 20:19:01 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:35:58 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,10 @@ bool BitcoinExchange::parse_value(){
     if (this->pipe != "|")
         return false;
     if (!isDouble(this->value)){
+        this->err = "Error: not a number.\n";
+        return false;
+    }
+    if (this->value[0] == '.' || this->value[this->value.size()-1] == '.'){
         this->err = "Error: not a number.\n";
         return false;
     }
