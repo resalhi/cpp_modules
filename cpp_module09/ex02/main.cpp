@@ -6,41 +6,39 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:12:24 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/12 20:47:02 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:07:31 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-template <typename T, typename P>
-std::string    merge_insirtion_sort(T tab, P tab_pair){
+template <typename T>
+std::string    merge_insirtion_sort(T tab){
     int struggler = -1;
     if (tab.size()%2 != 0){
         struggler = tab.back();
         tab.pop_back();
     }
     typename T::iterator it = tab.begin();
+    T small_tab;
+    T large_tab;
     while (it != tab.end()){
         long n1 = *it++;
         long n2 = *it++;
-        if (n1 > n2)
-            tab_pair.push_back(std::make_pair(n2, n1));
-        else
-            tab_pair.push_back(std::make_pair(n1, n2));
-    }
-    T small_tab;
-    T large_tab;
-    typename P::iterator itp = tab_pair.begin();
-    while (itp != tab_pair.end()){
-        small_tab.push_back((*itp).first);
-        large_tab.push_back((*itp).second);
-        itp++;
+        if (n1 > n2){
+            small_tab.push_back(n2);
+            large_tab.push_back(n1);
+        }
+        else{
+            small_tab.push_back(n1);
+            large_tab.push_back(n2);
+        }
     }
     std::sort(large_tab.begin(), large_tab.end());
-    while (!small_tab.empty()){
-        it = small_tab.begin();
+    it = small_tab.begin();
+    while (it != small_tab.end()){
         large_tab.insert(std::lower_bound(large_tab.begin(), large_tab.end(), (*it)), (*it));
-        small_tab.erase(it);
+        it++;
     }
     if (struggler != -1)
         large_tab.insert(std::lower_bound(large_tab.begin(), large_tab.end(), struggler), struggler);
@@ -72,12 +70,10 @@ int main(int ac, char **av){
         std::cout << '\n';
         std::string str;
         clock_t start_d = clock();
-        std::vector<std::pair<long, long> > pair_v;
-        str = merge_insirtion_sort(obj.get_vec(), pair_v);
+        str = merge_insirtion_sort(obj.get_vec());
         clock_t end_d = clock();
         clock_t start_v = clock();
-        std::deque<std::pair<long, long> > pair_d;
-        str = merge_insirtion_sort(obj.get_deque(), pair_d);
+        str = merge_insirtion_sort(obj.get_deque());
         clock_t end_v = clock();
         double duration_d = (end_d - start_d) * 1000000.0 / CLOCKS_PER_SEC;
         double duration_v = (end_v - start_v) * 1000000.0 / CLOCKS_PER_SEC;
