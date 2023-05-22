@@ -6,7 +6,7 @@
 /*   By: ressalhi <ressalhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:12:24 by ressalhi          #+#    #+#             */
-/*   Updated: 2023/05/20 17:07:31 by ressalhi         ###   ########.fr       */
+/*   Updated: 2023/05/22 21:13:26 by ressalhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,18 @@ int main(int ac, char **av){
             std::cout << "[...]";
         std::cout << '\n';
         std::string str;
-        clock_t start_d = clock();
-        str = merge_insirtion_sort(obj.get_vec());
-        clock_t end_d = clock();
+        std::deque<long> d = obj.get_deque();
         clock_t start_v = clock();
-        str = merge_insirtion_sort(obj.get_deque());
+        str = merge_insirtion_sort(vec);
         clock_t end_v = clock();
+        clock_t start_d = clock();
+        str = merge_insirtion_sort(d);
+        clock_t end_d = clock();
         double duration_d = (end_d - start_d) * 1000000.0 / CLOCKS_PER_SEC;
         double duration_v = (end_v - start_v) * 1000000.0 / CLOCKS_PER_SEC;
         std::cout << "After : " << str << '\n';
-        std::cout << "Time to process a range of " << ac-1 << " elements with std::deque : " << std::fixed << std::setprecision(5) << duration_d << " us" << std::endl;
-        std::cout << "Time to process a range of " << ac-1 << " elements with std::vector : " << std::setprecision(5) << duration_v << " us" << std::endl;
+        std::cout << "Time to process a range of " << ac-1 << " elements with std::vector : " << std::fixed << std::setprecision(5) << duration_v << " us" << std::endl;
+        std::cout << "Time to process a range of " << ac-1 << " elements with std::deque : " << std::setprecision(5) << duration_d << " us" << std::endl;
     }
     catch(const std::exception& e){
         std::cerr << e.what() << '\n';
